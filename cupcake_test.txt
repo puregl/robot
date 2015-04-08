@@ -1,0 +1,24 @@
+*** Settings ***
+Library    Selenium2Library
+
+*** Variables ***
+
+
+*** Testcases ***
+Search cupcake
+	เข้า Google
+	ค้นหา keyword ว่า cupcake
+	ต้องเจอคำว่า cupcake
+	[Teardown]    Close Browser
+
+*** Keywords ***
+เข้า Google
+	Open Browser    http://www.google.com
+
+ค้นหา keyword ว่า cupcake
+	Input Text    q    cupcake
+	Click Button    btnG
+
+ต้องเจอคำว่า cupcake
+	Wait Until Page Contains    cupcake2    
+
